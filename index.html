@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Address Tracker</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik"
+      rel="stylesheet"
+    />
+    <!-- Leaflet CDN for map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body onload="initialValue('192.212.174.101')">
+    <div class="main-container">
+      <div class="form-container">
+        <h1 class="title">IP Address Tracker</h1>
+        <form class="form-elements">
+          <input
+            id="ip_address"
+            type="text"
+            class="form-control"
+            placeholder="Search for any IP address or domain"
+          />
+          <button id="search_btn" class="btn btn-dark">
+            <img
+              src="files/icon-arrow.svg"
+              width="12px"
+              height="12px"
+              alt="search button"
+            />
+          </button>
+        </form>
+      </div>
+      <div class="results-display">
+        <div class="display-container">
+          <div class="info-block info-block-first">
+            <h4 class="muted-title">IP Address</h4>
+            <span id="ip" class="results"></span>
+          </div>
+          <div class="info-block block-seperator">
+            <h4 class="muted-title">Location</h4>
+            <span id="address" class="results"></span>
+          </div>
+          <div class="info-block block-seperator">
+            <h4 class="muted-title">Timezone</h4>
+            <span id="time_zone" class="results"></span>
+          </div>
+          <div class="info-block block-seperator">
+            <h4 class="muted-title">ISP</h4>
+            <span id="isp" class="results"></span>
+          </div>
+        </div>
+      </div>
+      <div id="display-map" class="map-container"></div>
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>
