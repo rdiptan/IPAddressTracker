@@ -1,5 +1,5 @@
 //ipify key
-const url = ""
+const url = `https://geo.ipify.org/api/v2/country,city?apiKey=at_BE1VA61VaUOnRXFHSG6mNFIKnK06K&ipAddress=`;
 
 // form elements
 const entered_ip = document.getElementById("ip_address");
@@ -48,7 +48,11 @@ getIPDetails = (ip_address) => {
     })
     .catch((error) => {
       console.error(error);
-      alert("Network error occured, Please try again later!");
+      if (error.code === "ERR_NETWORK") {
+        alert("Please disable your ad-blocker and try again");
+      } else {
+        alert("Network error occured, Please try again later!");
+      }
     });
 };
 
